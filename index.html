@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineer Daily Work Report</title>
+  <meta name="description" content="Engineer Daily Work Report Dashboard - 18/09/2026">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">NOC</div>
+        <div>
+          <div class="brand-title">Work Report</div>
+          <div class="brand-sub">Engineer Operations</div>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-item active" data-view="dashboard"><span>▦</span> Dashboard</button>
+        <button class="nav-item" data-view="engineers"><span>♙</span> Engineers</button>
+        <button class="nav-item" data-view="monthly"><span>▤</span> Monthly Summary</button>
+      </nav>
+      <div class="side-footer">
+        <div class="date-pill">18 Sep 2026</div>
+        <div class="muted">Daily operational report</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        <div>
+          <div class="eyebrow">ENGINEER PERFORMANCE</div>
+          <h1 id="pageTitle">Daily Dashboard</h1>
+        </div>
+        <div class="top-actions">
+          <div class="date-control"><span>Report Date</span><strong>18/09/2026</strong></div>
+          <button class="btn secondary" id="printBtn">Print</button>
+          <button class="btn primary" id="csvBtn">Export CSV</button>
+        </div>
+      </header>
+
+      <section id="dashboardView" class="view">
+        <div class="hero">
+          <div>
+            <span class="hero-kicker">DAILY REPORT</span>
+            <h2>Engineer Work Overview</h2>
+            <p>Team activity snapshot for <strong>18 September 2026</strong>.</p>
+          </div>
+          <div class="hero-date">18<br><small>SEP 2026</small></div>
+        </div>
+
+        <div class="kpi-grid" id="kpis"></div>
+
+        <div class="content-grid">
+          <section class="panel chart-panel">
+            <div class="panel-head">
+              <div><h3>Engineer Activity</h3><p>Ticket work by engineer</p></div>
+            </div>
+            <div id="barChart" class="bar-chart"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div><h3>Work Distribution</h3><p>Team totals from supplied report</p></div>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut" id="donut"><div><strong id="donutValue">208</strong><span>Ticket Work</span></div></div>
+              <div class="legend">
+                <div><i class="dot ticket"></i><span>Ticket Work</span><b id="legendTicket">208</b></div>
+                <div><i class="dot call"></i><span>Call Work</span><b id="legendCall">284</b></div>
+                <div><i class="dot support"></i><span>Support Work</span><b id="legendSupport">529</b></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel table-panel">
+          <div class="panel-head">
+            <div><h3>Daily Engineer Report</h3><p>Exact supplied values for 14 engineers</p></div>
+            <div class="table-tools">
+              <input id="search" type="search" placeholder="Search engineer...">
+              <select id="activityFilter">
+                <option value="all">All engineers</option>
+                <option value="active">Active only</option>
+                <option value="zero">No activity</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-scroll"><table id="reportTable"></table></div>
+        </section>
+      </section>
+
+      <section id="engineersView" class="view hidden">
+        <div class="section-intro"><span class="hero-kicker">TEAM</span><h2>Engineer Profiles</h2><p>Individual work snapshots for the 14 engineers in this report.</p></div>
+        <div class="engineer-grid" id="engineerCards"></div>
+      </section>
+
+      <section id="monthlyView" class="view hidden">
+        <div class="section-intro"><span class="hero-kicker">SUMMARY</span><h2>Monthly Summary</h2><p>Current source contains one daily report: September 2026.</p></div>
+        <div class="month-card">
+          <div><div class="month-title">September 2026</div><div class="month-sub">Available report date: 18/09/2026</div></div>
+          <div class="month-stat"><span>Engineers</span><strong>14</strong></div>
+          <div class="month-stat"><span>Ticket Work</span><strong>208</strong></div>
+          <div class="month-stat"><span>Call Work</span><strong>284</strong></div>
+          <div class="month-stat"><span>Support Work</span><strong>529</strong></div>
+        </div>
+        <section class="panel table-panel">
+          <div class="panel-head"><div><h3>September Daily Entry</h3><p>18/09/2026</p></div></div>
+          <div class="table-scroll"><table id="monthlyTable"></table></div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
